@@ -1,110 +1,77 @@
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aneka Sushi</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kyo sushi</title>
+<style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background-color: #FFFDD0; /* cream */
-      color: #033E6B; /* celtic blue */
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #fffaf0; /* Cream lembut */
+        padding: 30px;
+        text-align: center;
     }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      background-color: #AEE5D8; /* tea green */
-      color: #033E6B;
-      font-size: 2rem;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    h1 {
+        color: #d32f2f; /* Merah klasik */
+        margin-bottom: 20px;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 900px;
+        margin: auto;
     }
-
-    .card {
-      background-color: #ffffffcc;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transform: scale(0.9);
-      opacity: 0;
-      transition: transform 0.5s ease, opacity 0.5s ease;
+    .item {
+        background-color: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
     }
-
-    .card h3 {
-      margin: 10px;
+    .item h2 {
+        color: #1a1a1a;
+        margin-bottom: 10px;
     }
-
-    .card p {
-      margin: 0 10px 10px;
-      font-size: 0.9rem;
+    .price {
+        color: #6b8e23; /* Hijau wasabi */
+        font-weight: bold;
+        font-size: 18px;
     }
-
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
-  <header>Aneka Sushi Lezat</header>
-  <div class="grid" id="sushiGrid">
-    <!-- Kartu sushi akan dimasukkan lewat JS -->
-  </div>
 
-  <script>
-    const sushiList = [
-      { nama: 'Salmon Nigiri', deskripsi: 'Irisan salmon segar di atas nasi lembut.', gambar: 'https://images.unsplash.com/photo-1606813902917-4f490a4b90d6' },
-      { nama: 'Tuna Maki', deskripsi: 'Gulungan rumput laut dengan tuna segar.', gambar: 'https://images.unsplash.com/photo-1617196037745-f23a1a5a5ce3' },
-      { nama: 'California Roll', deskripsi: 'Kepiting, alpukat, dan timun segar.', gambar: 'https://images.unsplash.com/photo-1603133872875-684f30c8476f' },
-      { nama: 'Ebi Tempura Roll', deskripsi: 'Udang goreng tempura dengan saus spesial.', gambar: 'https://images.unsplash.com/photo-1601312378543-df7b2a49f3f3' },
-      { nama: 'Tamago Sushi', deskripsi: 'Telur manis lembut di atas nasi.', gambar: 'https://images.unsplash.com/photo-1605478505270-51e663219731' },
-    ];
+<h1>🍣 Menu Sushi</h1>
+<div class="menu">
+    <div class="item">
+        <h2>Salmon Nigiri</h2>
+        <p class="price">Rp 25.000 / pcs</p>
+    </div>
+    <div class="item">
+        <h2>Tuna Maki (6 pcs)</h2>
+        <p class="price">Rp 38.000</p>
+    </div>
+    <div class="item">
+        <h2>California Roll (8 pcs)</h2>
+        <p class="price">Rp 55.000</p>
+    </div>
+    <div class="item">
+        <h2>Ebi Tempura Roll (8 pcs)</h2>
+        <p class="price">Rp 65.000</p>
+    </div>
+    <div class="item">
+        <h2>Tamago Sushi</h2>
+        <p class="price">Rp 15.000 / pcs</p>
+    </div>
+</div>
 
-    const grid = document.getElementById('sushiGrid');
-
-    sushiList.forEach((item, index) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${item.gambar}" alt="${item.nama}">
-        <h3>${item.nama}</h3>
-        <p>${item.deskripsi}</p>
-      `;
-      grid.appendChild(card);
-
-      // Animasi muncul satu per satu
-      setTimeout(() => {
-        card.style.transform = 'scale(1)';
-        card.style.opacity = '1';
-        card.style.animation = 'fadeInUp 0.5s ease forwards';
-      }, index * 150);
-    });
-  </script>
 </body>
 </html>
+
