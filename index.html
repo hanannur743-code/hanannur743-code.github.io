@@ -1,83 +1,70 @@
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>kyo sushi</title>
-<style>
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        background-color: #fffaf0; /* Cream lembut */
-        padding: 30px;
-        text-align: center;
-    }
-    h1 {
-        color: #d32f2f; /* Merah klasik */
-        margin-bottom: 20px;
-    }
-    .menu {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        max-width: 900px;
-        margin: auto;
-    }
-    .item {
-        background-color: white;
-        border-radius: 15px;
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-    }
-    .item h2 {
-        color: #1a1a1a;
-        margin-bottom: 10px;
-    }
-    .price {
-        color: #6b8e23; /* Hijau wasabi */
-        font-weight: bold;
-        font-size: 18px;
-    }
-</style>
+<title>KYO SUSHI</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🍣KYO SUSHI🍣</h1>
-<div class="menu">
-    <div class="item">
-        <img src="images/salmon.jpg" alt="Salmon Nigiri" width="200">
-        <h2>Salmon Nigiri</h2>
-        <p>サーモン握り</p>
-        <p class="price">Rp 25.000 / pcs</p>
-    </div>
-    <div class="item">
-        <h2>Tuna Maki</h2>
-        <p>ツナ巻き</p>
-        <p class="price">Rp 38.000 / pcs</p>
-    </div>
-    <div class="item">
-        <h2>California Roll</h2>
-        <p>カリフォルニアロール</p>
-        <p class="price">Rp 55.000 / pcs</p>
-    </div>
-    <div class="item">
-        <h2>Ebi Tempura Roll </h2>
-        <p>海老天ぷらロール</p>
-        <p class="price">Rp 65.000 / pcs</p>
-    </div>
-    <div class="item">
-        <h2>Tamago Sushi</h2>
-         <p>卵寿司</p>
-        <p class="price">Rp 15.000 / pcs</p>
-    </div>
-</div>
+<header>
+    <div class="logo">KYO SUSHI</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#cart">Keranjang</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+</header>
 
+<section id="home" class="slider">
+    <div class="slides">
+        <img src="images/slide1.jpg" alt="Sushi 1">
+        <img src="images/slide2.jpg" alt="Sushi 2">
+        <img src="images/slide3.jpg" alt="Sushi 3">
+        <img src="images/slide4.jpg" alt="Sushi 4">
+    </div>
+</section>
+
+<section id="menu">
+    <h1>Menu Kami</h1>
+    <div class="menu-grid">
+        <div class="item" data-name="Salmon Nigiri" data-price="25000">
+            <img src="https://pin.it/59bsj1r25" alt="Salmon Nigiri">
+            <h2>Salmon Nigiri</h2>
+            <p>Rp 25.000 / porsi</p>
+            <button class="add-to-cart">Tambah ke Keranjang</button>
+        </div>
+        <div class="item" data-name="Tuna Maki" data-price="38000">
+            <img src="https://pin.it/6OFT4FBWX" alt="Tuna Maki">
+            <h2>Tuna Maki </h2>
+            <p>Rp 38.000 / porsi</p>
+            <button class="add-to-cart">Tambah ke Keranjang</button>
+        </div>
+        <div class="item" data-name="california roll" data-price="49000">
+            <img src="https://pin.it/5FT11Sdbi" alt="california roll">
+            <h2>california roll</h2>
+            <p>Rp 49.000 / porsi</p>
+            <button class="add-to-cart">Tambah ke Keranjang</button>
+        </div>
+        <div class="item" data-name="Ebi tempura roll" data-price="38000">
+            <img src="https://pin.it/AJQUj143S" alt="ebi tempura roll">
+            <h2>ebi tempura roll</h2>
+            <p>Rp 38.000 / porsi</p>
+            <button class="add-to-cart">Tambah ke Keranjang</button>
+        </div>
+    </div>
+</section>
+
+<section id="cart">
+    <h1>Keranjang Belanja</h1>
+    <ul id="cart-items"></ul>
+    <p>Total: Rp <span id="total-price">0</span></p>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
 
