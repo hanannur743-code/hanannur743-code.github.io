@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — kyo.sushi</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .checkout{max-width:820px;margin:34px auto;background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:22px}
+  .grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+  @media(max-width:800px){ .grid{grid-template-columns:1fr} }
+  label{font-weight:600;margin-bottom:6px;display:inline-block}
+  input,textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.1);background:#fff}
+  textarea{min-height:110px;resize:vertical}
+  .summary{border:1px dashed rgba(0,0,0,.1);border-radius:12px;padding:12px}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="brand">kyo<span class="dot">.</span>sushi</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#menu">Menu</a>
+    <a href="index.html#cart">Keranjang</a>
+  </nav>
+</header>
+
+<section class="checkout">
+  <h2 class="section-title" style="margin:0 0 14px">Checkout</h2>
+  <div class="grid">
+    <form id="form">
+      <div>
+        <label>Nama Lengkap</label>
+        <input required placeholder="Nama Anda">
+      </div>
+      <div>
+        <label>Alamat</label>
+        <textarea required placeholder="Alamat pengiriman"></textarea>
+      </div>
+      <div>
+        <label>Metode Pembayaran</label>
+        <select>
+          <option>Transfer Bank</option>
+          <option>COD</option>
+          <option>E-Wallet</option>
+        </select>
+      </div>
+      <button class="btn" style="margin-top:10px" type="submit">Kirim Pesanan</button>
+    </form>
+    <div class="summary">
+      <h3>Ringkasan Pesanan</h3>
+      <ul id="sum-list" style="list-style:none;padding:0;margin:10px 0"></ul>
+      <p>Total: <strong>Rp <span id="sum-total">0</span></strong></p>
+    </div>
+  </div>
+</section>
+
+<script>
+const CART_KEY="kyo_sushi_cart";
+function currency(n){return n.toLocaleString('id-ID')}
+const list=document.getElementById('sum-list');
+const totalEl=document.getElementById('sum-total');
+const cart = JSON.parse(localStorage.getItem(CART_KEY)||"[]");
+let total=0;
+cart.forEach(it=>{
+  const li=document.createElement('li');
+  li.style.padding="6px 0";
+  li.textContent = it.name + " × " + it.qty + " — Rp " + currency(it.price*it.qty);
+  list.appendChild(li);
+  total += it.price * it.qty;
+});
+totalEl.textContent = currency(total);
+
+document.getElementById('form').addEventListener('submit', e=>{
+  e.preventDefault();
+  alert("Terima kasih! Pesanan Anda diproses.");
+  localStorage.removeItem(CART_KEY);
+  window.location.href="index.html";
+});
+</script>
+</body>
+</html>

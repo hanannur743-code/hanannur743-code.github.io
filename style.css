@@ -1,0 +1,98 @@
+:root{
+  --beige:#F4EFE7;
+  --wine:#9A1E22;
+  --wine-15: rgba(154,30,34,.15);
+  --ink:#1c1b1b;
+  --muted:#6f6a6a;
+  --card:#ffffff;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Noto Sans JP',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--beige);
+  color:var(--ink);
+}
+
+.nav{
+  position:sticky; top:0; z-index:50;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 22px; backdrop-filter:saturate(180%) blur(8px);
+  background: linear-gradient(to bottom, rgba(244,239,231,.9), rgba(244,239,231,.6));
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+.brand{font-weight:700; letter-spacing:.5px; font-size:20px}
+.brand .dot{color:var(--wine)}
+.nav a{color:var(--ink); text-decoration:none; margin-left:16px; font-weight:600; opacity:.85}
+.nav a:hover{opacity:1; color:var(--wine)}
+
+.btn,.btn-outline{
+  display:inline-block; padding:10px 16px; border-radius:999px; transition:.25s;
+  font-weight:700; letter-spacing:.3px; text-decoration:none;
+}
+.btn{ background:var(--wine); color:#fff; box-shadow: var(--shadow)}
+.btn:hover{ transform:translateY(-1px); box-shadow:0 14px 34px var(--wine-15) }
+.btn-outline{ border:2px solid var(--wine); color:var(--wine) }
+.btn-outline:hover{ background:var(--wine); color:#fff }
+
+.hero{ position:relative; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:24px; padding:32px 22px; }
+@media (max-width: 900px){ .hero{ grid-template-columns:1fr; } }
+
+/* Slider */
+.slider{ position:relative; overflow:hidden; border-radius:20px; box-shadow:var(--shadow); background:#ddd; }
+.slides{ display:flex; transition:transform .6s cubic-bezier(.22,.61,.36,1); }
+.slide{ min-width:100%; height:56vw; max-height:520px; }
+.slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+.nav-btn{ position:absolute; top:50%; transform:translateY(-50%); border:none; background:rgba(255,255,255,.7); padding:8px 12px; border-radius:999px; cursor:pointer; font-size:20px }
+.prev{ left:10px } .next{ right:10px }
+.dots{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:8px }
+.dots button{ width:10px; height:10px; border-radius:50%; border:2px solid #fff; background:transparent; opacity:.8; cursor:pointer }
+.dots button.active{ background:#fff }
+
+.hero-copy h1{ font-size:40px; margin:0 0 8px }
+.hero-copy p{ color:var(--muted); margin:0 0 18px }
+
+.section{ padding:56px 22px }
+.section-title{ margin:0 0 22px; font-size:28px }
+
+/* Pinterest-style gallery */
+.pinterest{ column-count: 3; column-gap:16px; }
+@media (max-width:900px){ .pinterest{ column-count:2 } }
+@media (max-width:600px){ .pinterest{ column-count:1 } }
+.pinterest img{
+  width:100%; margin:0 0 16px; border-radius:16px; box-shadow:var(--shadow);
+  break-inside: avoid; opacity:0; transform: translateY(10px); transition: .5s;
+}
+.pinterest img.visible{ opacity:1; transform:translateY(0) }
+
+/* Menu */
+.menu-grid{
+  display:grid; gap:18px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.card{
+  background:var(--card); border-radius:18px; overflow:hidden; box-shadow:var(--shadow);
+  transform:translateZ(0);
+}
+.card img{ width:100%; height:170px; object-fit:cover; display:block }
+.card .info{ padding:14px }
+.card h3{ margin:0 0 6px; font-size:18px; display:flex; justify-content:space-between; align-items:baseline; gap:10px }
+.card h3 span{ font-size:12px; font-weight:600; color:var(--muted) }
+.price{ color:var(--wine); font-weight:700; margin:0 0 10px }
+
+/* Cart */
+.cart{
+  max-width:700px; margin:auto; background:#fff; border:1px solid rgba(0,0,0,.06);
+  border-radius:16px; padding:16px; box-shadow:var(--shadow);
+}
+#cart-list{ list-style:none; padding:0; margin:0; }
+.cart-item{ display:flex; justify-content:space-between; align-items:center; padding:10px 6px; border-bottom:1px dashed rgba(0,0,0,.08) }
+.cart-item:last-child{ border-bottom:none }
+.cart-controls{ display:flex; align-items:center; gap:8px }
+.icon-btn{ border:none; background:transparent; padding:6px 10px; border-radius:8px; cursor:pointer }
+.icon-btn:hover{ background:var(--wine-15) }
+.qty{ padding:4px 8px; border-radius:8px; background:rgba(0,0,0,.04) }
+
+.footer{ padding:30px 22px; text-align:center; color:var(--muted) }

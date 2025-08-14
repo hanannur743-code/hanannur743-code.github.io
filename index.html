@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kyo.sushi — Sushi Party</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="brand">kyo<span class="dot">.</span>sushi</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#menu">Menu</a>
+    <a href="#cart">Keranjang</a>
+    <a href="checkout.html" class="btn-outline">Checkout</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero Slider -->
+  <section id="home" class="hero">
+    <div class="slider" aria-label="Sushi party slideshow">
+      <div class="slides">
+        <div class="slide"><img src="images/slide1.jpg" alt="Sushi Party Spread 1"></div>
+        <div class="slide"><img src="images/slide2.jpg" alt="Sushi Party Spread 2"></div>
+        <div class="slide"><img src="images/slide3.jpg" alt="Sushi Party Spread 3"></div>
+      </div>
+      <button class="nav-btn prev" aria-label="Sebelumnya">&#10094;</button>
+      <button class="nav-btn next" aria-label="Selanjutnya">&#10095;</button>
+      <div class="dots" role="tablist"></div>
+    </div>
+    <div class="hero-copy">
+      <h1>Sushi Party, but make it chic.</h1>
+      <p>Beige vibes with pastel wine accents — feedsafe & timeless.</p>
+      <a href="#menu" class="btn">Pesan Sekarang</a>
+    </div>
+  </section>
+
+  <!-- Pinterest-style Gallery -->
+  <section id="gallery" class="section">
+    <h2 class="section-title">Vibes & Moodboard</h2>
+    <div class="pinterest">
+      <img src="images/pin1.jpg" alt="Aesthetic sushi 1" class="reveal">
+      <img src="images/pin2.jpg" alt="Aesthetic sushi 2" class="reveal">
+      <img src="images/pin3.jpg" alt="Aesthetic sushi 3" class="reveal">
+      <img src="images/pin4.jpg" alt="Aesthetic sushi 4" class="reveal">
+      <img src="images/pin5.jpg" alt="Aesthetic sushi 5" class="reveal">
+      <img src="images/pin6.jpg" alt="Aesthetic sushi 6" class="reveal">
+    </div>
+  </section>
+
+  <!-- Menu + Cart -->
+  <section id="menu" class="section">
+    <h2 class="section-title">Menu Party</h2>
+    <div class="menu-grid">
+      <div class="card item" data-id="1" data-name="Salmon Nigiri" data-price="25000">
+        <img src="images/salmon.jpg" alt="Salmon Nigiri">
+        <div class="info">
+          <h3>Salmon Nigiri <span>サーモン握り</span></h3>
+          <p class="price">Rp 25.000</p>
+          <button class="btn add">Tambah</button>
+        </div>
+      </div>
+      <div class="card item" data-id="2" data-name="Tuna Maki (6 pcs)" data-price="38000">
+        <img src="images/tuna.jpg" alt="Tuna Maki">
+        <div class="info">
+          <h3>Tuna Maki <span>ツナ巻き</span></h3>
+          <p class="price">Rp 38.000</p>
+          <button class="btn add">Tambah</button>
+        </div>
+      </div>
+      <div class="card item" data-id="3" data-name="California Roll (8 pcs)" data-price="55000">
+        <img src="images/california.jpg" alt="California Roll">
+        <div class="info">
+          <h3>California Roll <span>カリフォルニアロール</span></h3>
+          <p class="price">Rp 55.000</p>
+          <button class="btn add">Tambah</button>
+        </div>
+      </div>
+      <div class="card item" data-id="4" data-name="Ebi Tempura Roll (8 pcs)" data-price="65000">
+        <img src="images/ebi.jpg" alt="Ebi Tempura">
+        <div class="info">
+          <h3>Ebi Tempura Roll <span>海老天ぷらロール</span></h3>
+          <p class="price">Rp 65.000</p>
+          <button class="btn add">Tambah</button>
+        </div>
+      </div>
+      <div class="card item" data-id="5" data-name="Tamago Sushi" data-price="15000">
+        <img src="images/tamago.jpg" alt="Tamago Sushi">
+        <div class="info">
+          <h3>Tamago Sushi <span>卵寿司</span></h3>
+          <p class="price">Rp 15.000</p>
+          <button class="btn add">Tambah</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cart" class="section">
+    <h2 class="section-title">Keranjang</h2>
+    <div class="cart">
+      <ul id="cart-list"></ul>
+      <div class="cart-summary">
+        <p>Total: <strong>Rp <span id="total">0</span></strong></p>
+        <a href="checkout.html" class="btn-outline">Lanjut Checkout</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span> kyo.sushi — crafted for your party.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
